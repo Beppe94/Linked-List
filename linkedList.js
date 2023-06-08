@@ -57,6 +57,18 @@ class LinkedList{
     lastElement() {
         return `The last element is ${this.tail.value}`;
     }
+
+    elementAt(index) {
+        let current = this.head;
+
+        for (let i = 0; i < index; i++) {
+
+            current = current.next;
+            if (current === null) return "There is no item for this index";
+        }
+
+        return current;
+    }
 }
 
 
@@ -73,3 +85,4 @@ console.log(list.size());
 console.log(list);
 console.log(list.firstElement());
 console.log(list.lastElement());
+console.log(list.elementAt(5));
