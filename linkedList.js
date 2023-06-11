@@ -120,6 +120,37 @@ class LinkedList{
 
         return `This element is not in the list`;
     }
+
+    find(element) {
+
+        let current = this.head;
+        let counter = 0;
+
+        while(current != null) {
+            
+            if(current.value === element) {
+                return `The element is at index ${counter}`;
+            }   
+            current = current.next;
+            counter++;
+        }
+        
+        return `Element not in the list`;;
+    }
+
+    toString() {
+
+        let current = this.head;
+        let string = '';
+        
+        while(current !== null) {
+            string += `(${current.value}) -> `;
+
+            current = current.next;
+        }
+        
+        return string + 'null';
+    }
 }
 
 
@@ -133,9 +164,13 @@ list.append(24);
 
 list.removeElement()
 
+list.prepend(0)
+
 console.log(list.size());
 console.log(list);
 console.log(list.firstElement());
 console.log(list.lastElement());
 console.log(list.elementAt(2));
 console.log(list.contains(0));
+console.log(list.find(20));
+console.log(list.toString());
